@@ -6,6 +6,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 
 export default function QuestionList() {
     const [allQuestions, setAllQuestions] = useState();
@@ -32,16 +33,17 @@ export default function QuestionList() {
                             <Typography variant="body2" sx={{ mb: 1.5 }}>
                                 {question.question}
                             </Typography>
-                            <Button
-                                variant="outlined"
-                                onClick={() => {
-                                    console.log("clicked card");
-                                    
-                                }}
-                            >
-                                {" "}
-                                More (will take to detail page)
-                            </Button>
+                            <Link to={`Question/${question.pk}`} >
+                                <Button
+                                    variant="outlined"
+                                    onClick={() => {
+                                        console.log(`card clicked: ${question.pk}`);
+                                    }}
+                                >
+                                    {" "}
+                                    More (will take to detail page)
+                                </Button>
+                            </Link>
                         </CardContent>
                     </Card>
                 ))}

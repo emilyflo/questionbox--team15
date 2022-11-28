@@ -31,7 +31,7 @@ function App() {
                 <Route path="Profile" element={<Profile />} />
                 <Route path="Favorites" element={<Favorites />} />
                 <Route path="Home" element={<Home />} />
-                <Route path="QuestionDetail" element={<QuestionDetail />} />
+                <Route path="Question/:id" element={<QuestionDetail />} />
                 <Route path="/" element={<QuestionList />} />
             </Routes>
         </BrowserRouter>
