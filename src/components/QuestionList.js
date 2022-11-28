@@ -24,10 +24,24 @@ export default function QuestionList() {
             <h1>QuestionList</h1>
             {allQuestions &&
                 allQuestions.map((question) => (
-                    <Card sx={{m:1.5}} >
+                    <Card sx={{ m: 1.5 }} key={question.pk}>
                         <CardContent>
-                            <Typography>{question.title}</Typography>
-                            <Typography>{question.question}</Typography>
+                            <Typography variant="h5" sx={{ mb: 1 }}>
+                                {question.title}
+                            </Typography>
+                            <Typography variant="body2" sx={{ mb: 1.5 }}>
+                                {question.question}
+                            </Typography>
+                            <Button
+                                variant="outlined"
+                                onClick={() => {
+                                    console.log("clicked card");
+                                    
+                                }}
+                            >
+                                {" "}
+                                More (will take to detail page)
+                            </Button>
                         </CardContent>
                     </Card>
                 ))}
