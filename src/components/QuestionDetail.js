@@ -11,6 +11,7 @@ import axios from "axios";
 export default function QuestionDetail() {
     const [params] = useState(useParams());
     const [question, setQuestion] = useState();
+    const [answerList, setAnswerList] = useState([])
 
     useEffect(() => {
         console.log(params.id);
@@ -19,9 +20,14 @@ export default function QuestionDetail() {
                 `https://meercat-question-box.onrender.com/api/questions/${params.id}/`
             )
             .then((res) => {
-                console.log(res.data);
+               //  console.log(res.data);
                 setQuestion(res.data);
             });
+         axios.get(`https://meercat-question-box.onrender.com/api/questions/${params.id}/answers/`).then((res)=>{
+            console.log(res.data)
+            setAnswerList(res.data)
+
+         })
     }, []);
 
     return (
@@ -43,10 +49,15 @@ export default function QuestionDetail() {
                             <Typography>{question.createdDate}</Typography>
                         </CardContent>
                     </Card>
-                    <Box>
-                        {question.answers.length > 1 &&
-                            question.answers.map((answer) => (
-                                <Typography>{answer}</Typography>
+                    <Box sx={{ml:6}} >
+                        {answerList &&
+                            answerList.map((answer) => (
+                              <Card>
+                              <CardContent>
+                                 <Typography>{answer.answer}</Typography>
+                                 <Typography>Answered by: {answer.user}</Typography>
+                              </CardContent>
+                              </Card>
                             ))}
                     </Box>
                 </>
