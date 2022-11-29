@@ -6,6 +6,7 @@ import Favorites from "./components/Favorites";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import QuestionDetail from "./components/QuestionDetail";
+import AskQuestion from "./components/AskQuestion";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createTheme } from "@mui/material";
 import QuestionList from "./components/QuestionList";
@@ -33,6 +34,7 @@ function App() {
                 <Route path="Home" element={<Home />} />
                 <Route path="Question/:id" element={<QuestionDetail />} />
                 <Route path="/" element={<QuestionList />} />
+                <Route path="AskQuestion" element={<AskQuestion />} />
             </Routes>
         </BrowserRouter>
     );
