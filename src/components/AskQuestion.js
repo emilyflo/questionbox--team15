@@ -1,17 +1,20 @@
-import Card from '@mui/material/Card';
-import CardContent from "@mui/material/CardContent";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
+
+
 
 
 export default function AskQuestion () {
     return (
         <>
             <h1>Ask your pet question</h1>
-
-                <Card>
-                    <CardContent>
-                        <p>hello from the card</p>
-                    </CardContent>
-                </Card>
+                <Box>
+                    <TextField label="Question Title">Question: </TextField><br></br>
+                    <TextField label="Question"></TextField>
+                    <Button label="Submit" variant="outlined">Submit</Button>
+                </Box>
         </>
     )
 }
